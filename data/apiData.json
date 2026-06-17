@@ -1,0 +1,36 @@
+{
+  "apiDetails": [
+    {
+      "name": "CreatePayment",
+      "path": "/payments/create",
+      "method": "POST",
+      "description": "Initiate a SEPA payment request."
+    },
+    {
+      "name": "GetPaymentStatus",
+      "path": "/payments/:id/status",
+      "method": "GET",
+      "description": "Retrieve status for a payment."
+    }
+  ],
+  "functions": [
+    "validatePaymentRequest",
+    "formatIban",
+    "notifySettlement"
+  ],
+  "channels": [
+    "API Gateway",
+    "Message Queue",
+    "Webhook"
+  ],
+  "upcomingProjects": [
+    { "name": "Multi-Currency Support", "eta": "Q3 2026" },
+    { "name": "Retry Engine", "eta": "Q4 2026" }
+  ],
+  "deployedChanges": [
+    { "id": "chg-2026-001", "summary": "Improved logging for payment validation", "deployedAt": "2026-06-10" }
+  ],
+  "upcomingReleases": [
+    { "version": "v1.3.0", "date": "2026-07-01", "notes": "Multi-currency groundwork" }
+  ]
+}
