@@ -6,7 +6,11 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
+// Serve UI at root
+app.use('/', express.static(path.join(__dirname, 'public')));
+
+// Optional JSON info route (kept for API clients)
+app.get('/info', (req, res) => {
 	res.json({
 		service: 'API listing service',
 		endpoints: [
