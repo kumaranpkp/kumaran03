@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spring Shop Demo</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="shop-container">
+    <header class="hero">
+      <div>
+        <h1>Spring Shop</h1>
+        <p>Browse products, add items to your cart, and complete checkout with shipment and payment details.</p>
+      </div>
+      <div class="user-bar">
+        <span id="userStatus">Not signed in</span>
+        <a id="loginLink" href="/login">Login</a>
+        <button id="logoutButton" type="button" hidden>Logout</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="products card" id="productList">
+        <h2>Products</h2>
+        <div id="productGrid" class="product-grid"></div>
+      </section>
+
+      <aside class="cart card">
+        <h2>Your Cart</h2>
+        <div id="cartSummary" class="cart-summary"></div>
+        <ul id="cartItems" class="cart-items"></ul>
+        <button id="clearCart" type="button">Clear Cart</button>
+
+        <div class="checkout-card">
+          <h2>Checkout</h2>
+          <form id="checkoutForm">
+            <label>
+              Shipping address
+              <textarea id="shippingAddress" rows="3" placeholder="Street, city, state, postal code"></textarea>
+            </label>
+            <label>
+              Payment method
+              <select id="paymentMethod">
+                <option value="Credit Card">Credit Card</option>
+                <option value="PayPal">PayPal</option>
+                <option value="COB">Cash on Delivery</option>
+              </select>
+            </label>
+            <button id="checkoutButton" type="submit">Complete Order</button>
+          </form>
+          <div id="checkoutResult" class="checkout-result"></div>
+        </div>
+
+        <div id="rolePanel" class="role-panel" hidden></div>
+
+        <div class="chart-card">
+          <h2>Cart Chart</h2>
+          <canvas id="cartChart" width="400" height="260"></canvas>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/shop.js"></script>
+</body>
+</html>

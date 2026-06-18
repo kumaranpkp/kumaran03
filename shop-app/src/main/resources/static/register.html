@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Spring Shop</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h1>Create Your Account</h1>
+      <form id="registerForm">
+        <label>
+          Full name
+          <input id="fullName" type="text" required />
+        </label>
+        <label>
+          Email
+          <input id="email" type="email" required />
+        </label>
+        <label>
+          Username
+          <input id="username" type="text" required />
+        </label>
+        <label>
+          Password
+          <input id="password" type="password" required />
+        </label>
+        <label>
+          Shipping address
+          <textarea id="address" rows="2"></textarea>
+        </label>
+        <label>
+          Phone number
+          <input id="phone" type="tel" />
+        </label>
+        <label>
+          Payment account details
+          <input id="accountDetails" type="text" placeholder="e.g. Visa **** 4242" />
+        </label>
+        <button type="submit">Register</button>
+      </form>
+      <div id="registerStatus" class="status-message"></div>
+      <p><a href="/login">Already have an account? Sign in</a></p>
+    </div>
+  </div>
+  <script src="/register.js"></script>
+</body>
+</html>

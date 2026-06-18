@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Login</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h1>Sign in to Spring Shop</h1>
+      <form id="loginForm">
+        <label>
+          Username
+          <input id="username" type="text" required />
+        </label>
+        <label>
+          Password
+          <input id="password" type="password" required />
+        </label>
+        <button type="submit">Sign in</button>
+      </form>
+      <div class="login-note">
+        <p>Try user: <strong>alice</strong> / password123</p>
+        <p>Try manager: <strong>manager</strong> / admin123</p>
+      </div>
+      <div class="login-status" id="loginStatus"></div>
+      <p><a href="/">Back to shop</a></p>
+    </div>
+  </div>
+  <script src="/login.js"></script>
+</body>
+</html>

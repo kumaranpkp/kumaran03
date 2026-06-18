@@ -50,3 +50,39 @@ npm start
 ```
 
 The service listens on port `3000` by default.
+
+### Shop Route
+
+The Express app now exposes `/shop` and redirects to the Spring Boot shop app at `http://localhost:8081`.
+
+To use the shop UI, run the Spring Boot app separately and then visit:
+
+```bash
+cd shop-app
+mvn spring-boot:run
+```
+
+Browse the shop at `http://localhost:8081` or request `http://localhost:3000/shop`.
+
+## Spring Boot Shop App
+
+A new Spring Boot application has been added to `shop-app/`.
+
+### What it includes
+- `shop-app/pom.xml` — Maven configuration
+- `shop-app/src/main/java/com/example/shop/ShopApplication.java` — Spring Boot entrypoint
+- `shop-app/src/main/java/com/example/shop/controller/ProductController.java` — Product API
+- `shop-app/src/main/java/com/example/shop/model/Product.java` — Product model
+- `shop-app/src/main/resources/static/index.html` — Shop UI
+- `shop-app/src/main/resources/static/shop.js` — Cart + chart logic
+- `shop-app/src/main/resources/static/styles.css` — Shop styles
+- `shop-app/src/main/resources/application.properties` — server port config
+
+### Run the shop app
+
+```bash
+cd shop-app
+mvn spring-boot:run
+```
+
+Open `http://localhost:8081` in your browser after starting the application.

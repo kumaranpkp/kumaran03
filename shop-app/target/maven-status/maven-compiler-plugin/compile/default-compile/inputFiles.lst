@@ -1,0 +1,11 @@
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/controller/RegisterController.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/model/User.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/ShopApplication.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/controller/ProductController.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/model/BusinessPartner.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/controller/AuthController.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/model/Product.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/data/DataStore.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/model/Vendor.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/controller/CheckoutController.java
+/workspaces/kumaran03/shop-app/src/main/java/com/example/shop/controller/AdminController.java

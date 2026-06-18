@@ -14,6 +14,11 @@ app.get('/login', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
+// Redirect /shop to the Spring Boot shop app running on port 8081
+app.get('/shop', (req, res) => {
+	res.redirect('http://localhost:8081');
+});
+
 // Optional JSON info route (kept for API clients)
 app.get('/info', (req, res) => {
 	res.json({
