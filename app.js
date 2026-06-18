@@ -9,6 +9,11 @@ app.use(express.json());
 // Serve UI at root
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+// Serve login page explicitly (so /login works)
+app.get('/login', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
 // Optional JSON info route (kept for API clients)
 app.get('/info', (req, res) => {
 	res.json({
