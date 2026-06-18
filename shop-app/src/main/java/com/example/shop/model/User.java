@@ -1,8 +1,13 @@
 package com.example.shop.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "users")
 public class User {
+    @Id
+    private String id;
     private String username;
     @JsonIgnore
     private String password;
@@ -13,6 +18,7 @@ public class User {
     private String phone;
     private String accountDetails;
     private boolean verified;
+    private long createdAt;
 
     public User() {
     }
@@ -31,6 +37,15 @@ public class User {
         this.phone = phone;
         this.accountDetails = accountDetails;
         this.verified = verified;
+        this.createdAt = System.currentTimeMillis();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -103,5 +118,13 @@ public class User {
 
     public void setVerified(boolean verified) {
         this.verified = verified;
+    }
+
+    public long getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
     }
 }

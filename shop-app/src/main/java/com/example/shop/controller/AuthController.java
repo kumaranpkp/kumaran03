@@ -1,7 +1,7 @@
 package com.example.shop.controller;
 
-import com.example.shop.data.DataStore;
 import com.example.shop.model.User;
+import com.example.shop.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +12,11 @@ import java.util.Map;
 
 @RestController
 public class AuthController {
+    private final UserRepository userRepository;
+
+    public AuthController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @PostMapping("/api/login")
     public ResponseEntity<Object> login(@RequestBody Map<String, String> credentials) {
@@ -22,7 +27,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "Username and password are required."));
         }
 
-        return DataStore.findUser(username)
+        return userRepository.findByUsername(username)
                 .filter(user -> user.getPassword().equals(password))
                 .<ResponseEntity<Object>>map(user -> ResponseEntity.ok(Map.of(
                         "username", user.getUsername(),

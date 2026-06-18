@@ -1,6 +1,11 @@
 package com.example.shop.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "products")
 public class Product {
+    @Id
     private String id;
     private String name;
     private String category;
@@ -10,6 +15,7 @@ public class Product {
     private int stock;
     private String vendor;
     private String businessPartner;
+    private long createdAt;
 
     public Product() {
     }
@@ -28,6 +34,7 @@ public class Product {
         this.stock = stock;
         this.vendor = vendor;
         this.businessPartner = businessPartner;
+        this.createdAt = System.currentTimeMillis();
     }
 
     public String getId() {
@@ -100,5 +107,13 @@ public class Product {
 
     public void setBusinessPartner(String businessPartner) {
         this.businessPartner = businessPartner;
+    }
+
+    public long getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
     }
 }

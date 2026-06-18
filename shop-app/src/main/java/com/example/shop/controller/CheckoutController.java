@@ -1,5 +1,6 @@
 package com.example.shop.controller;
 
+import com.example.shop.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,11 @@ import java.util.Map;
 
 @RestController
 public class CheckoutController {
+    private final UserRepository userRepository;
+
+    public CheckoutController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public static class CheckoutRequest {
         public String username;
@@ -22,6 +28,9 @@ public class CheckoutController {
     public ResponseEntity<Map<String, Object>> checkout(@RequestBody CheckoutRequest request) {
         if (request.username == null || request.username.isBlank()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("success", false, "message", "User must be logged in to checkout."));
+        }
+        if (!userRepository.findByUsername(request.username).isPresent()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "User not found in system."));
         }
         if (request.shippingAddress == null || request.shippingAddress.isBlank()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("success", false, "message", "Shipping address is required."));
